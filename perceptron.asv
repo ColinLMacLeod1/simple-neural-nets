@@ -1,32 +1,34 @@
 inputs = [0 0;0 1; 1 0; 1 1];
-desOut = [0 0 0 1];
+desOut = [-1 -1 -1 1];
 out = [0 0 0 0];
 w = [rand(1) rand(1) rand(1)];
-LSep = @(w0,w1,w2,x1) (-w1/w2)*x1 - w0/w1;
-lRate = 1;
-correct = [0 0 0 0];
-err = [0 0 0 0];
+f = @(w0,w1,w2,x1,x2) w0+w1*x1+w2*x2;
+c = 0.5;
+correct = 0;
+err = 0;
+loweindex = 0;
 dw = [0 0 0];
 while ~isequal(correct,[1 1 1 1])
-    
+    w = w + dw;
+    figure(1)
+    plot([0 -w(2)/w(3)],[-w(1)/w(3) 0])
+    hold on
     for i = 1:length(desOut)
-        
-        figure(1)
-        hold on
-        if desOut(i) == 1
-            plot(inputs(i,1),inputs(i,2),'bo')
+        plot(inputs(i,1), inputs(i,2), 'or')
+        x = f(w(1),w(2),w(3),inputs(i,1),inputs(i,2));
+        if x<w(1)
+            out(i) = -1;
         else
-            plot(inputs(i,1),inputs(i,2),'ro')
+            out(i) = 1;
         end
-        plot(0:2, LSep(w(1),w(2),w(3),0:2))
-        out(i) = LSep(w(1),w(2),w(3),inputs(i,1))<inputs(i,2);
-        err(i) = LSep(w(1),w(2),w(3),inputs(i,1)) - inputs(i,2);
+        if desOut(i) ~= out(i)
+            err = desOut(i) - out(i);
+        end
+        
     end
+    index = 1;
+    dw = c.*[w(1) inputs(index,1) inputs(index,2)]; 
     hold off
-    correct = [1 1 1 1];
-    errp = err + 10000*correct;
-    [c,index] = min(errp);
-    if(c<0
     
     
 end
