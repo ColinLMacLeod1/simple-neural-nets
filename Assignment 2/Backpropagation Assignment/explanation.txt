@@ -1,18 +1,21 @@
+Colin MacLeod - 10151666
+
 Instructions:
 Run python main.py
 Be sure that the data file and Network.py file are in the
 same folder that the program is executed in
 
-1.
-- Initial weights:
+- Initial weights: The initial weights were random and normalized because the output was normalized.
 
-- Node output function:
+- Node output function: The sigmoid function was chosen as it is continuously differentiable as is
+required for Backpropagation
 
-- Learning rate:
+- Learning rate: The learning rate was selected at 0.1 to be small enough to allow
+and accurate solution, however it can be altered if the number of iterations is changed
 
-- Termination Criteria:
-
-- Number of Layers and Nodes:
+- Termination Criteria: iterations
+The max number of iterations can be altered to maximize training based on
+time and processing power available.
 
 - Data pre processing
 The data was normalized and sorted into inputs and output arrays
