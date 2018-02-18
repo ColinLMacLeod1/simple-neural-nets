@@ -1,0 +1,12 @@
+1.
+- Initial weights:
+
+- Node output function:
+
+- Learning rate:
+
+- Termination Criteria:
+
+- Number of Layers and Nodes:
+
+- Data pre processing 
