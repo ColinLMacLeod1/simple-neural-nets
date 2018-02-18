@@ -55,7 +55,7 @@ for i in range(len(norm_out)):
 
 print(test_out)
 print(len(test_out), len(train_out))
-net = BackPropNetwork(input_size = 11, hidden_size = 12, output_size = 1, learning_rate = 0.5, momentum = 0.1)
+net = BackPropNetwork(input_size = 11, hidden_size = 12, output_size = 1, learning_rate = 0.1, momentum = 0.1)
 
 net.train(train, train_out, iterations = 20)
 net.test(test, test_out)

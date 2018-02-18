@@ -1,3 +1,8 @@
+Instructions:
+Run python main.py
+Be sure that the data file and Network.py file are in the
+same folder that the program is executed in
+
 1.
 - Initial weights:
 
@@ -9,4 +14,9 @@
 
 - Number of Layers and Nodes:
 
-- Data pre processing 
+- Data pre processing
+The data was normalized and sorted into inputs and output arrays
+
+- The data was split 75% training and 25% and was divided such that every fourth
+data point was added to test and the rest to train so that training and test would both
+contain all output types.
